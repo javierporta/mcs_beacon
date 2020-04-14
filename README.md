@@ -9,3 +9,5 @@ run like that:
 ```
 sudo node ibeacon.js
 ```
+
+Use node 8.9.4

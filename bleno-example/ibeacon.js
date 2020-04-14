@@ -2,7 +2,7 @@ console.log("enter");
 
 var bleno = require("bleno");
 
-process.env["BLENO_ADVERTISING_INTERVAL"] = 750;
+process.env["BLENO_ADVERTISING_INTERVAL"] = 100;
 
 bleno.on("stateChange", onStateChange);
 
