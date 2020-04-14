@@ -7,5 +7,5 @@ Eddystone + iBeacon Linux implementation
 run like that:
 
 ```
-sudo BLENO_ADVERTISING_INTERVAL=500 node ibeacon.js
+sudo node ibeacon.js
 ```

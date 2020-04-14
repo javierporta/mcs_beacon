@@ -2,6 +2,8 @@ console.log("enter");
 
 var bleno = require("bleno");
 
+process.env["BLENO_ADVERTISING_INTERVAL"] = 750;
+
 bleno.on("stateChange", onStateChange);
 
 var uuid = "e2c56db5dffb48d2b060d0f5a71096e0";
