@@ -3,6 +3,7 @@ console.log("enter");
 var bleno = require("bleno");
 
 process.env["BLENO_ADVERTISING_INTERVAL"] = 100;
+process.env["BLENO_DEVICE_NAME"] = "java server ble";
 
 bleno.on("stateChange", onStateChange);
 
