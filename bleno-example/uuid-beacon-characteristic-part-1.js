@@ -9,7 +9,7 @@ const propertyReadableWritable = "iBeaconUUID_1";
 var UuidIBeaconCharacteristicPart1 = function () {
   UuidIBeaconCharacteristicPart1.super_.call(this, {
     uuid: "ec0e",
-    properties: ["read", "write", "notify"],
+    properties: ["read", "write"],
     value: null,
   });
 
@@ -53,12 +53,12 @@ UuidIBeaconCharacteristicPart1.prototype.onWriteRequest = function (
   this._value = data;
 
   console.log(
-    "Writing" + propertyReadableWritable + ": " + this._value.toString("hex")
+    "Writing " + propertyReadableWritable + ": " + this._value.toString("hex")
   );
 
   console.log("As text: " + tools.hex2a(this._value.toString("hex")));
 
-  jsonFile.test = tools.hex2a(this._value.toString("hex"));
+  jsonFile[propertyReadableWritable] = tools.hex2a(this._value.toString("hex"));
 
   tools.writeJsonFile("./data.json", jsonFile);
 

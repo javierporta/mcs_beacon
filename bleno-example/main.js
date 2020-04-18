@@ -6,8 +6,9 @@ var BlenoPrimaryService = bleno.PrimaryService;
 
 var UuidIBeaconCharacteristicPart1 = require("./uuid-beacon-characteristic-part-1");
 var UuidIBeaconCharacteristicPart2 = require("./uuid-beacon-characteristic-part-2");
+var AdvertisingIntervalCharacteristic = require("./advertising-interval-charactestitic");
 
-console.log("bleno - echo");
+console.log("bleno - connectable mode");
 
 bleno.on("stateChange", function (state) {
   console.log("on -> stateChange: " + state);
@@ -31,6 +32,7 @@ bleno.on("advertisingStart", function (error) {
         characteristics: [
           new UuidIBeaconCharacteristicPart1(),
           new UuidIBeaconCharacteristicPart2(),
+          new AdvertisingIntervalCharacteristic(),
         ],
       }),
     ]);

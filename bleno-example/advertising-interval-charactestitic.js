@@ -5,10 +5,10 @@ var tools = require("./tools");
 var BlenoCharacteristic = bleno.Characteristic;
 
 var jsonFile = {};
-const propertyReadableWritable = "iBeaconUUID_2";
-var UuidIBeaconCharacteristicPart2 = function () {
-  UuidIBeaconCharacteristicPart2.super_.call(this, {
-    uuid: "2901",
+const propertyReadableWritable = "advertisingInterval";
+var AdvertisingIntervalCharasteristic = function () {
+  AdvertisingIntervalCharasteristic.super_.call(this, {
+    uuid: "abcd",
     properties: ["read", "write"],
     value: null,
   });
@@ -32,9 +32,9 @@ var UuidIBeaconCharacteristicPart2 = function () {
   });
 };
 
-util.inherits(UuidIBeaconCharacteristicPart2, BlenoCharacteristic);
+util.inherits(AdvertisingIntervalCharasteristic, BlenoCharacteristic);
 
-UuidIBeaconCharacteristicPart2.prototype.onReadRequest = function (
+AdvertisingIntervalCharasteristic.prototype.onReadRequest = function (
   offset,
   callback
 ) {
@@ -44,7 +44,7 @@ UuidIBeaconCharacteristicPart2.prototype.onReadRequest = function (
   callback(this.RESULT_SUCCESS, this._value);
 };
 
-UuidIBeaconCharacteristicPart2.prototype.onWriteRequest = function (
+AdvertisingIntervalCharasteristic.prototype.onWriteRequest = function (
   data,
   offset,
   withoutResponse,
@@ -71,4 +71,4 @@ UuidIBeaconCharacteristicPart2.prototype.onWriteRequest = function (
   callback(this.RESULT_SUCCESS);
 };
 
-module.exports = UuidIBeaconCharacteristicPart2;
+module.exports = AdvertisingIntervalCharasteristic;
