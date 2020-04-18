@@ -2,6 +2,6 @@
   "iBeaconUUID_1": "e2c56db5dffb48d2",
   "iBeaconUUID_2": "b060d0f5a71096e1",
   "eddystoneUrl": "https://google.com",
-  "advertisingInterval": "250",
-  "beaconIntervalTime": "300"
+  "advertisingInterval": "100",
+  "beaconIntervalTime": "500"
 }
