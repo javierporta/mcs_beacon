@@ -2,6 +2,8 @@ var eddystoneBeacon = require("eddystone-beacon"); // require('./../../index')
 var data = require("./data.json");
 var bleno = require("eddystone-beacon/node_modules/bleno");
 
+process.env["BLENO_ADVERTISING_INTERVAL"] = data.advertisingInterval; //set advertising interval
+
 var options = {
   name: "EddystoneBeacon", // set device name when advertising (Linux only)
   txPowerLevel: -22, // override TX Power Level, default value is -21,

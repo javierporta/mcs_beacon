@@ -3,7 +3,7 @@ console.log("enter");
 var bleno = require("bleno");
 var data = require("./data.json");
 
-process.env["BLENO_ADVERTISING_INTERVAL"] = data.advertisingInterval;
+process.env["BLENO_ADVERTISING_INTERVAL"] = data.advertisingInterval; //set advertising interval
 process.env["BLENO_DEVICE_NAME"] = "ipleiria";
 
 bleno.on("stateChange", onStateChange);
