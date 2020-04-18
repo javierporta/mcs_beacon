@@ -4,7 +4,8 @@ process.env["BLENO_ADVERTISING_INTERVAL"] = 200;
 
 var BlenoPrimaryService = bleno.PrimaryService;
 
-var BeaconCharacteristic = require("./characteristic");
+var UuidIBeaconCharacteristicPart1 = require("./uuid-beacon-characteristic-part-1");
+var UuidIBeaconCharacteristicPart2 = require("./uuid-beacon-characteristic-part-2");
 
 console.log("bleno - echo");
 
@@ -27,7 +28,10 @@ bleno.on("advertisingStart", function (error) {
     bleno.setServices([
       new BlenoPrimaryService({
         uuid: "ec00",
-        characteristics: [new BeaconCharacteristic()],
+        characteristics: [
+          new UuidIBeaconCharacteristicPart1(),
+          new UuidIBeaconCharacteristicPart2(),
+        ],
       }),
     ]);
   } else {
