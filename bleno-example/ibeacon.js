@@ -38,7 +38,9 @@ function onStartAdverstising(error) {
   } else {
     console.log("Started advertising");
     console.log(
-      "Advertising interval is:" + process.env["BLENO_ADVERTISING_INTERVAL"]
+      "Advertising interval is: " +
+        process.env["BLENO_ADVERTISING_INTERVAL"] +
+        "ms"
     );
   }
 }
