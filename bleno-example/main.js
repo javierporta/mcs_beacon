@@ -1,5 +1,7 @@
 var bleno = require("bleno");
 
+process.env["BLENO_ADVERTISING_INTERVAL"] = 200;
+
 var BlenoPrimaryService = bleno.PrimaryService;
 
 var EchoCharacteristic = require("./characteristic");
@@ -28,5 +30,18 @@ bleno.on("advertisingStart", function (error) {
         characteristics: [new EchoCharacteristic()],
       }),
     ]);
+  } else {
+    bleno.stopAdvertising();
+    bleno.startAdvertising("echo", ["ec00"]);
   }
+});
+
+bleno.on("advertisingStop", function () {
+  console.log("on -> advertisingStop: ");
+});
+
+bleno.on("disconnect", function (clientAddress) {
+  console.log("Client " + clientAddress + " disconnected");
+
+  //restart node here¡
 });
