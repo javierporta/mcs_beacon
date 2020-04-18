@@ -4,7 +4,7 @@ process.env["BLENO_ADVERTISING_INTERVAL"] = 200;
 
 var BlenoPrimaryService = bleno.PrimaryService;
 
-var EchoCharacteristic = require("./characteristic");
+var BeaconCharacteristic = require("./characteristic");
 
 console.log("bleno - echo");
 
@@ -12,7 +12,7 @@ bleno.on("stateChange", function (state) {
   console.log("on -> stateChange: " + state);
 
   if (state === "poweredOn") {
-    bleno.startAdvertising("echo", ["ec00"]);
+    bleno.startAdvertising("ConnectableMode", ["ec00"]);
   } else {
     bleno.stopAdvertising();
   }
@@ -27,12 +27,12 @@ bleno.on("advertisingStart", function (error) {
     bleno.setServices([
       new BlenoPrimaryService({
         uuid: "ec00",
-        characteristics: [new EchoCharacteristic()],
+        characteristics: [new BeaconCharacteristic()],
       }),
     ]);
   } else {
     bleno.stopAdvertising();
-    bleno.startAdvertising("echo", ["ec00"]);
+    bleno.startAdvertising("ConnectableMode", ["ec00"]);
   }
 });
 

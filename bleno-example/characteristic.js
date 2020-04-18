@@ -5,8 +5,8 @@ var tools = require("./tools");
 var BlenoCharacteristic = bleno.Characteristic;
 
 var jsonFile = {};
-var EchoCharacteristic = function () {
-  EchoCharacteristic.super_.call(this, {
+var BeaconCharacteristic = function () {
+  BeaconCharacteristic.super_.call(this, {
     uuid: "ec0e",
     properties: ["read", "write", "notify"],
     value: null,
@@ -26,18 +26,19 @@ var EchoCharacteristic = function () {
   });
 };
 
-util.inherits(EchoCharacteristic, BlenoCharacteristic);
+util.inherits(BeaconCharacteristic, BlenoCharacteristic);
 
-EchoCharacteristic.prototype.onReadRequest = function (offset, callback) {
+BeaconCharacteristic.prototype.onReadRequest = function (offset, callback) {
   console.log(
-    "EchoCharacteristic - onReadRequest: value = " + this._value.toString("hex")
+    "BeaconCharacteristic - onReadRequest: value = " +
+      this._value.toString("hex")
   );
   console.log(hex2a(this._value.toString("hex")));
 
   callback(this.RESULT_SUCCESS, this._value);
 };
 
-EchoCharacteristic.prototype.onWriteRequest = function (
+BeaconCharacteristic.prototype.onWriteRequest = function (
   data,
   offset,
   withoutResponse,
@@ -46,7 +47,7 @@ EchoCharacteristic.prototype.onWriteRequest = function (
   this._value = data;
 
   console.log(
-    "EchoCharacteristic - onWriteRequest: value = " +
+    "BeaconCharacteristic - onWriteRequest: value = " +
       this._value.toString("hex")
   );
 
@@ -74,7 +75,7 @@ EchoCharacteristic.prototype.onWriteRequest = function (
   // }
 
   if (this._updateValueCallback) {
-    console.log("EchoCharacteristic - onWriteRequest: notifying");
+    console.log("BeaconCharacteristic - onWriteRequest: notifying");
 
     this._updateValueCallback(this._value);
   }
@@ -82,17 +83,17 @@ EchoCharacteristic.prototype.onWriteRequest = function (
   callback(this.RESULT_SUCCESS);
 };
 
-EchoCharacteristic.prototype.onSubscribe = function (
+BeaconCharacteristic.prototype.onSubscribe = function (
   maxValueSize,
   updateValueCallback
 ) {
-  console.log("EchoCharacteristic - onSubscribe");
+  console.log("BeaconCharacteristic - onSubscribe");
 
   this._updateValueCallback = updateValueCallback;
 };
 
-EchoCharacteristic.prototype.onUnsubscribe = function () {
-  console.log("EchoCharacteristic - onUnsubscribe");
+BeaconCharacteristic.prototype.onUnsubscribe = function () {
+  console.log("BeaconCharacteristic - onUnsubscribe");
 
   this._updateValueCallback = null;
 };
@@ -108,4 +109,4 @@ function hex2a(hexx) {
   return str;
 }
 
-module.exports = EchoCharacteristic;
+module.exports = BeaconCharacteristic;
