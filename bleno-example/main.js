@@ -1,7 +1,5 @@
 var bleno = require("bleno");
 
-process.env["BLENO_ADVERTISING_INTERVAL"] = 200;
-
 var BlenoPrimaryService = bleno.PrimaryService;
 
 var UuidIBeaconCharacteristicPart1 = require("./uuid-beacon-characteristic-part-1");
@@ -16,7 +14,7 @@ bleno.on("stateChange", function (state) {
   console.log("on -> stateChange: " + state);
 
   if (state === "poweredOn") {
-    bleno.startAdvertising("ConnectableMode", ["ec00"]);
+    bleno.startAdvertising("BeaconConfigurator", ["ec00"]);
   } else {
     bleno.stopAdvertising();
   }

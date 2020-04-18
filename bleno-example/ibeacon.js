@@ -36,12 +36,16 @@ function onStartAdverstising(error) {
   if (error) {
     console.error(error);
   } else {
-    console.log("Started advertising");
+    const advTime = process.env["BLENO_ADVERTISING_INTERVAL"]
+      ? process.env["BLENO_ADVERTISING_INTERVAL"]
+      : 100; //100ms is default
+
+    console.log("Advertising iBeacon Packets");
     console.log(
-      "Advertising interval is: " +
-        process.env["BLENO_ADVERTISING_INTERVAL"] +
-        "ms"
+      "UUID to advertise: " +
+        joinIBeaconUUID(data.iBeaconUUID_1, data.iBeaconUUID_2)
     );
+    console.log("AdvInterval: " + advTime + "ms");
   }
 }
 

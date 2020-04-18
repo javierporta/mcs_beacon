@@ -1,5 +1,5 @@
 {
-  "name": "battery-service",
+  "name": "mcs-beacon",
   "version": "0.1.0",
   "description": "BLE (Bluetooth Low Energy) Battery Service",
   "main": "index.js",
@@ -11,8 +11,8 @@
     "linux"
   ],
   "author": {
-    "name": "Don Coleman",
-    "url": "https://github.com/don"
+    "name": "IPLeiria - Royli Hernandez | Javier Portaluppi",
+    "url": "https://github.com/javierporta/mcs_beacon"
   },
   "dependencies": {
     "bleno": "^0.5.0",
