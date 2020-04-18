@@ -5,10 +5,10 @@ var tools = require("./tools");
 var BlenoCharacteristic = bleno.Characteristic;
 
 var jsonFile = {};
-const propertyReadableWritable = "advertisingInterval";
-var AdvertisingIntervalCharasteristic = function () {
-  AdvertisingIntervalCharasteristic.super_.call(this, {
-    uuid: "abcf",
+const propertyReadableWritable = "beaconIntervalTime";
+var BeaconIntervalTimeCharasteristic = function () {
+  BeaconIntervalTimeCharasteristic.super_.call(this, {
+    uuid: "abce",
     properties: ["read", "write"],
     value: null,
   });
@@ -32,9 +32,9 @@ var AdvertisingIntervalCharasteristic = function () {
   });
 };
 
-util.inherits(AdvertisingIntervalCharasteristic, BlenoCharacteristic);
+util.inherits(BeaconIntervalTimeCharasteristic, BlenoCharacteristic);
 
-AdvertisingIntervalCharasteristic.prototype.onReadRequest = function (
+BeaconIntervalTimeCharasteristic.prototype.onReadRequest = function (
   offset,
   callback
 ) {
@@ -44,7 +44,7 @@ AdvertisingIntervalCharasteristic.prototype.onReadRequest = function (
   callback(this.RESULT_SUCCESS, this._value);
 };
 
-AdvertisingIntervalCharasteristic.prototype.onWriteRequest = function (
+BeaconIntervalTimeCharasteristic.prototype.onWriteRequest = function (
   data,
   offset,
   withoutResponse,
@@ -71,4 +71,4 @@ AdvertisingIntervalCharasteristic.prototype.onWriteRequest = function (
   callback(this.RESULT_SUCCESS);
 };
 
-module.exports = AdvertisingIntervalCharasteristic;
+module.exports = BeaconIntervalTimeCharasteristic;
