@@ -6,7 +6,8 @@ var BlenoPrimaryService = bleno.PrimaryService;
 
 var UuidIBeaconCharacteristicPart1 = require("./uuid-beacon-characteristic-part-1");
 var UuidIBeaconCharacteristicPart2 = require("./uuid-beacon-characteristic-part-2");
-var AdvertisingIntervalCharacteristic = require("./advertising-interval-charactestitic");
+var AdvertisingIntervalCharacteristic = require("./advertising-interval-characteristic");
+var EddystoneUrlCharacteristic = require("./eddystone-url-characteristic");
 
 console.log("bleno - connectable mode");
 
@@ -33,6 +34,7 @@ bleno.on("advertisingStart", function (error) {
           new UuidIBeaconCharacteristicPart1(),
           new UuidIBeaconCharacteristicPart2(),
           new AdvertisingIntervalCharacteristic(),
+          new EddystoneUrlCharacteristic(),
         ],
       }),
     ]);
