@@ -25,10 +25,13 @@ function onStateChange(state) {
         return;
       }
       jsonFile = jsonData;
-      console.log("current uid:" + jsonFile.iBeaconUID);
+      console.log(
+        "current uid:" +
+          joinIBeaconUUID(jsonFile.iBeaconUUID_1, jsonFile.iBeaconUUID_2)
+      );
 
       bleno.startAdvertisingIBeacon(
-        jsonFile.iBeaconUID,
+        joinIBeaconUUID(jsonFile.iBeaconUUID_1, jsonFile.iBeaconUUID_2),
         major,
         minor,
         measuredPower,
@@ -44,4 +47,8 @@ function onStartAdverstising(error) {
   } else {
     console.log("Started advertising");
   }
+}
+
+function joinIBeaconUUID(part1, part2) {
+  return part1 + part2;
 }
