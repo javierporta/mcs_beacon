@@ -1,4 +1,5 @@
 const exec = require("child_process").exec;
+var data = require("./data.json");
 
 function runEddystoneBeacon(exec) {
   console.log(`exec runEddystoneBeacon`);
@@ -74,8 +75,8 @@ const keypress = async () => {
   console.log("Connectable mode, press any key to continue");
   await keypress();
 
-  setInterval(runEddystoneBeacon, 1500, exec);
-  setInterval(runIBeacon, 1500, exec);
+  setInterval(runEddystoneBeacon, data.beaconIntervalTime, exec);
+  setInterval(runIBeacon, data.beaconIntervalTime, exec);
   console.log("Broadcasting, press any key to end");
   await keypress();
 
