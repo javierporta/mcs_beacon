@@ -10,11 +10,13 @@ var BeaconIntervalTimeCharasteristic = require("./beacon-interval-time-character
 
 console.log("bleno - connectable mode");
 
+const connectionName = "BeaconConfigurator";
+
 bleno.on("stateChange", function (state) {
   console.log("on -> stateChange: " + state);
 
   if (state === "poweredOn") {
-    bleno.startAdvertising("BeaconConfigurator", ["ec00"]);
+    bleno.startAdvertising(connectionName, ["ec00"]);
   } else {
     bleno.stopAdvertising();
   }

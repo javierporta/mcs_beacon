@@ -3,7 +3,7 @@ var data = require("./data.json");
 
 function runEddystoneBeacon(exec) {
   console.log(`exec runEddystoneBeacon`);
-  exec("node eddystone-beacon.js", (err, stdout, stderr) => {
+  exec("node eddystoneBeacon.js", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
@@ -16,7 +16,7 @@ function runEddystoneBeacon(exec) {
 
 function runIBeacon(exec) {
   console.log(`exec runIBeacon`);
-  exec("node ibeacon.js", (err, stdout, stderr) => {
+  exec("node iBeaconBeacon.js", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
@@ -29,7 +29,7 @@ function runIBeacon(exec) {
 
 function runConnectable() {
   console.log(`exec connectable mode`);
-  exec("node main.js", (err, stdout, stderr) => {
+  exec("node connect.js", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
