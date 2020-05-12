@@ -64,21 +64,43 @@ const keypress = async () => {
 };
 
 (async () => {
-  var refreshIntervalIdEddystone = setInterval(runEddystoneBeacon, 1500, exec);
-  var refreshIntervalIdBeacon = setInterval(runIBeacon, 1500, exec);
+  //1. Broadcast mode
+  var refreshIntervalIdEddystone = setInterval(
+    runEddystoneBeacon,
+    parseInt(data.beaconIntervalTime) * 2,
+    exec
+  );
+
+  await timeout(parseInt(data.beaconIntervalTime));
+
+  var refreshIntervalIdBeacon = setInterval(
+    runIBeacon,
+    parseInt(data.beaconIntervalTime) * 2,
+    exec
+  );
+
   console.log("Broadcasting, press any key to continue");
   await keypress();
 
+  //2. Connecatble mode
   clearInterval(refreshIntervalIdEddystone);
   clearInterval(refreshIntervalIdBeacon);
   runConnectable();
   console.log("Connectable mode, press any key to continue");
   await keypress();
 
-  setInterval(runEddystoneBeacon, data.beaconIntervalTime, exec);
-  setInterval(runIBeacon, data.beaconIntervalTime, exec);
+  //3. Broadcast mode
+  setInterval(runEddystoneBeacon, parseInt(data.beaconIntervalTime) * 2, exec);
+
+  await timeout(parseInt(data.beaconIntervalTime));
+
+  setInterval(runIBeacon, parseInt(data.beaconIntervalTime) * 2, exec);
   console.log("Broadcasting, press any key to end");
   await keypress();
 
   console.log("bye");
 })().then(process.exit);
+
+function timeout(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
