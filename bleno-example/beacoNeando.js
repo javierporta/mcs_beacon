@@ -14,7 +14,7 @@ function getTime(){
   // current seconds
   let seconds = date_ob.getSeconds();
 
-  return `${hours}:${minutes}:${current}`
+  return `${hours}:${minutes}:${seconds}`
 }
 
 function runEddystoneBeacon(exec) {
