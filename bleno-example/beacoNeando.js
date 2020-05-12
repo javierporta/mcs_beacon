@@ -1,6 +1,22 @@
 const exec = require("child_process").exec;
 var data = require("./data.json");
 
+
+
+function getTime(){
+  let date_ob = new Date();
+  // current hours
+  let hours = date_ob.getHours();
+
+  // current minutes
+  let minutes = date_ob.getMinutes();
+
+  // current seconds
+  let seconds = date_ob.getSeconds();
+
+  return `${hours}:${minutes}:${current}`
+}
+
 function runEddystoneBeacon(exec) {
   console.log(`exec runEddystoneBeacon ${getTime()}`);
   exec("node eddystoneBeacon.js", (err, stdout, stderr) => {
@@ -51,20 +67,6 @@ function hciconfigReset(exec) {
     console.log(`stdout: ${stdout}`);
     console.log(`stderr: ${stderr}`);
   });
-}
-
-function getTime(){
-  let date_ob = new Date();
-  // current hours
-  let hours = date_ob.getHours();
-
-  // current minutes
-  let minutes = date_ob.getMinutes();
-
-  // current seconds
-  let seconds = date_ob.getSeconds();
-
-  return `${hours}:${minutes}:${current}`
 }
 
 const keypress = async () => {
