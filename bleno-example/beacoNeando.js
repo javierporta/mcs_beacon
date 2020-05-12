@@ -90,15 +90,26 @@ const keypress = async () => {
   await keypress();
 
   //3. Broadcast mode
-  setInterval(runEddystoneBeacon, parseInt(data.beaconIntervalTime) * 2, exec);
+  refreshIntervalIdEddystone = setInterval(
+    runEddystoneBeacon,
+    parseInt(data.beaconIntervalTime) * 2,
+    exec
+  );
 
   await timeout(parseInt(data.beaconIntervalTime));
 
-  setInterval(runIBeacon, parseInt(data.beaconIntervalTime) * 2, exec);
+  refreshIntervalIdBeacon = setInterval(
+    runIBeacon,
+    parseInt(data.beaconIntervalTime) * 2,
+    exec
+  );
   console.log("Broadcasting, press any key to end");
   await keypress();
 
   console.log("bye");
+
+  clearInterval(refreshIntervalIdEddystone);
+  clearInterval(refreshIntervalIdBeacon);
 })().then(process.exit);
 
 function timeout(ms) {
