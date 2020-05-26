@@ -45,7 +45,7 @@ function runIBeacon(exec) {
 
 function runConnectable() {
   console.log(`exec connectable mode`);
-  exec("npm run connect", (err, stdout, stderr) => {
+  exec("npm run connectable", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;

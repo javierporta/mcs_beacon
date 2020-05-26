@@ -8,20 +8,18 @@ run like that:
 
 ### Eddystone
 ```
-sudo node eddystoneBeacon.js
+sudo npm run eddystoneBeacon
 ```
 ### iBeacon
 ```
-sudo node iBeaconBeacon.js
+sudo npm run iBeaconBeacon
 ```
 ### Both (Main program)
 ```
-sudo node beacoNeando.js
+sudo npm run beacoNeando
 ```
 Prerequisites:
 
 - Use node 8.9.4
 - See Bleno prerequisites (https://github.com/noble/bleno)
-
-
-npm install node@8.9.4 --save-exact
+- npm install
