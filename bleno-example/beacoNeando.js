@@ -19,7 +19,7 @@ function getTime() {
 
 function runEddystoneBeacon(exec) {
   console.log(`exec runEddystoneBeacon ${getTime()}`);
-  exec("node eddystoneBeacon.js", (err, stdout, stderr) => {
+  exec("npm run eddystoneBeacon", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
@@ -32,7 +32,7 @@ function runEddystoneBeacon(exec) {
 
 function runIBeacon(exec) {
   console.log(`exec runIBeacon ${getTime()}`);
-  exec("node iBeaconBeacon.js", (err, stdout, stderr) => {
+  exec("npm run iBeaconBeacon", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
@@ -45,7 +45,7 @@ function runIBeacon(exec) {
 
 function runConnectable() {
   console.log(`exec connectable mode`);
-  exec("node connect.js", (err, stdout, stderr) => {
+  exec("npm run connect", (err, stdout, stderr) => {
     if (err) {
       console.error(`exec error: ${err}`);
       return;
@@ -126,6 +126,7 @@ const keypress = async () => {
 
   clearInterval(refreshIntervalIdEddystone);
   clearInterval(refreshIntervalIdBeacon);
+  hciconfigReset(exec);
 })().then(process.exit);
 
 //do something when app is closing

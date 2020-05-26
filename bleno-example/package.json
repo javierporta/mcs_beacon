@@ -23,6 +23,7 @@
     "v": "node -v",    
     "eddystoneBeacon": "node eddystoneBeacon.js",    
     "iBeaconBeacon": "node iBeaconBeacon.js",    
-    "connectable": "node connect.js"
+    "connectable": "node connect.js",    
+    "beacoNeando": "node beacoNeando.js"
   }
 }
