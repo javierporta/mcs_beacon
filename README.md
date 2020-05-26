@@ -25,8 +25,12 @@ Prerequisites:
 
 
 ### Configure and run
+
+```
 - git clone https://github.com/javierporta/mcs_beacon.git
 - cd mcs_beacon/bleno-example
 - npm install
-
+```
+```
 - sudo npm run beacoNeando
+```
