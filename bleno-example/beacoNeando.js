@@ -3,7 +3,7 @@ var data = require("./data.json");
 
 
 
-function getTime(){
+function getTime() {
   let date_ob = new Date();
   // current hours
   let hours = date_ob.getHours();
@@ -127,6 +127,21 @@ const keypress = async () => {
   clearInterval(refreshIntervalIdEddystone);
   clearInterval(refreshIntervalIdBeacon);
 })().then(process.exit);
+
+//do something when app is closing
+process.on('exit', exitHandler.bind());
+
+//catches ctrl+c event
+process.on('SIGINT', exitHandler.bind());
+
+function exitHandler() {
+  console.log("cleanup")
+  exec("sudo pkill 'node'", (err, stdout, stderr) => {
+
+  });
+
+  process.exit();
+}
 
 function timeout(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
