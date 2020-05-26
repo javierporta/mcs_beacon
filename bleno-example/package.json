@@ -20,6 +20,9 @@
     "node": "8.9.4"
   },
   "scripts": {
-    "v": "node -v"
+    "v": "node -v",    
+    "eddystoneBeacon": "node eddystoneBeacon.js",    
+    "iBeaconBeacon": "node iBeaconBeacon.js",    
+    "connectable": "node connect.js"
   }
 }
