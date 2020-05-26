@@ -22,3 +22,6 @@ Prerequisites:
 
 - Use node 8.9.4
 - See Bleno prerequisites (https://github.com/noble/bleno)
+
+
+npm install node@8.9.4 --save-exact
