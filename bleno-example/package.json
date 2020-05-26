@@ -24,6 +24,6 @@
     "eddystoneBeacon": "node eddystoneBeacon.js",    
     "iBeaconBeacon": "node iBeaconBeacon.js",    
     "connectable": "node connect.js",    
-    "beacoNeando": "node beacoNeando.js"
+    "beacoNeando": "sudo node beacoNeando.js"
   }
 }
